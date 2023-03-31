@@ -71,7 +71,7 @@ namespace PlayerBridge
         }
         public override int GetFileName()
         {
-            return WinAPI.SendMessage(hwnd, POT_COMMAND, POT_GET_PLAYFILE_NAME, editorHwnd);
+            return WinAPI.SendMessage(hwnd, POT_COMMAND, POT_GET_PLAYFILE_NAME, ownerHwnd);
         }
         public override string AfterGetFileName(Message m)
         {

@@ -6,7 +6,7 @@ namespace PlayerBridge
     {
         public int hwnd;
         protected string exe = "-";
-        protected int editorHwnd;
+        protected int ownerHwnd;
 
         /// <summary>
         /// 현재 가지고 있는 hwnd 값으로 SendMessage를 수행합니다.
@@ -14,7 +14,7 @@ namespace PlayerBridge
         /// <param name="wMsg">wMsg</param>
         /// <param name="wParam">wParam</param>
         /// <param name="lParam">lParam</param>
-        /// <returns></returns>
+        /// <returns>윈도우 메시지 리턴값</returns>
         public int SendMessage(int wMsg, int wParam, int lParam)
         {
             return (hwnd > 0) ? WinAPI.SendMessage(hwnd, wMsg, wParam, lParam) : 0;
@@ -142,7 +142,7 @@ namespace PlayerBridge
         /// <param name="hwnd">프로그램의 윈도우 핸들</param>
         public void SetEditorHwnd(int hwnd)
         {
-            editorHwnd = hwnd;
+            ownerHwnd = hwnd;
         }
 
         /// <summary>
